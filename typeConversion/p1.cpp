@@ -28,6 +28,7 @@ int main()
     float p;
     p = kg;
     kg.display();
-    cout << "Equivalent weight in Pound: " << kg << " lbs\n";
+
+    cout << "Equivalent weight in Pound: " << p << " lbs\n";
     return 0;
 }

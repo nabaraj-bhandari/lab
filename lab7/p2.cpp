@@ -51,6 +51,6 @@ public:
 
 int main()
 {
-    Manager m("Alice", 101, 5, "HR");
+    Manager m("Nabaraj", 101, 5, "HR");
     m.showManager();
 }

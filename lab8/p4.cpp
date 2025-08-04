@@ -23,24 +23,17 @@ public:
     void writeRecords()
     {
         ofstream fout(filename, ios::binary);
-        int n;
-        cout << "How many students? ";
-        cin >> n;
+        Student s;
+        cout << "Name: ";
+        cin.getline(s.name, 30);
+        cout << "ID: ";
+        cin >> s.id;
         cin.ignore();
-        for (int i = 0; i < n; i++)
-        {
-            Student s;
-            cout << "Name: ";
-            cin.getline(s.name, 30);
-            cout << "ID: ";
-            cin >> s.id;
-            cin.ignore();
-            cout << "Department: ";
-            cin.getline(s.department, 20);
-            cout << "Address: ";
-            cin.getline(s.address, 50);
-            fout.write((char *)&s, sizeof(s));
-        }
+        cout << "Department: ";
+        cin.getline(s.department, 20);
+        cout << "Address: ";
+        cin.getline(s.address, 50);
+        fout.write((char *)&s, sizeof(s));
     }
     void readRecords()
     {

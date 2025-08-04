@@ -1,6 +1,3 @@
-// Create a polymorphic class Vehicle and create other derived classes Bus, Car, and Bike from Vehicle.
-// Illustrate RTTI by the use of dynamic_cast and typeid operators in this program.
-
 #include <iostream>
 #include <typeinfo>
 using namespace std;
@@ -34,20 +31,19 @@ int main()
 {
     Vehicle *v[] = {new Bus(), new Car(), new Bike()};
 
-    for (auto p : v)
+    for (int i = 0; i < 3; i++)
     {
-        cout << "Type: " << typeid(*p).name() << "\n";
-        p->info();
+        cout << "Type: " << typeid(*v[i]).name() << "\n";
+        v[i]->info();
 
-        if (Bus *b = dynamic_cast<Bus *>(p))
+        if (Bus *b = dynamic_cast<Bus *>(v[i]))
             cout << "Dynamic cast says this is a Bus\n";
-        else if (Car *c = dynamic_cast<Car *>(p))
+        else if (Car *c = dynamic_cast<Car *>(v[i]))
             cout << "Dynamic cast says this is a Car\n";
-        else if (Bike *bk = dynamic_cast<Bike *>(p))
+        else if (Bike *bk = dynamic_cast<Bike *>(v[i]))
             cout << "Dynamic cast says this is a Bike\n";
-        cout << "---\n";
     }
 
-    for (auto p : v)
-        delete p;
+    for (int i = 0; i < n; i++)
+        delete v[i];
 }
